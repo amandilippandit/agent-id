@@ -31,3 +31,26 @@ export interface RegisterResponse {
   status: "active";
   created_at: number;
 }
+
+export interface VerifyRequest {
+  agent_id: string;
+  message: string;
+  signature: string;
+}
+
+export interface VerifyResponse {
+  valid: boolean;
+  agent_id: string;
+  status: "active" | "revoked";
+}
+
+export interface RevokeRequest {
+  proof: string;
+  timestamp: number;
+}
+
+export interface MetadataUpdateRequest {
+  metadata: AgentMetadata;
+  proof: string;
+  timestamp: number;
+}
