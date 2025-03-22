@@ -17,7 +17,9 @@ app.use("*", cors());
 
 // ── Landing Page ────────────────────────────────────────────────
 
-app.get("/", (c) => c.json({ service: "agent-id", version: "0.1.0" }));
+import { LandingPage } from "./page.js";
+// Landing page
+app.get("/", (c) => c.html(<LandingPage />));
 
 
 // ── Get Registration Nonce ──────────────────────────────────────
