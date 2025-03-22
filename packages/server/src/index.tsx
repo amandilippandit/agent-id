@@ -19,6 +19,7 @@ app.use("*", cors());
 
 app.get("/", (c) => c.json({ service: "agent-id", version: "0.1.0" }));
 
+
 // ── Get Registration Nonce ──────────────────────────────────────
 
 app.get("/api/register/nonce", async (c) => {
