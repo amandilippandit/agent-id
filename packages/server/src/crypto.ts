@@ -38,3 +38,19 @@ export async function fingerprint(publicKey: Uint8Array): Promise<string> {
   const hash = await crypto.subtle.digest("SHA-256", publicKey);
   return toHex(new Uint8Array(hash));
 }
+
+export function sign(message: Uint8Array, privateKey: Uint8Array): Uint8Array {
+  return ed.sign(message, privateKey);
+}
+
+export function verify(
+  signature: Uint8Array,
+  message: Uint8Array,
+  publicKey: Uint8Array,
+): boolean {
+  try {
+    return ed.verify(signature, message, publicKey);
+  } catch {
+    return false;
+  }
+}
