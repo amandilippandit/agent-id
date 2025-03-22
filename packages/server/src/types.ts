@@ -54,3 +54,18 @@ export interface MetadataUpdateRequest {
   proof: string;
   timestamp: number;
 }
+
+export interface Store {
+  getAgent(agentId: string): Promise<AgentIdentity | null>;
+  putAgent(agent: AgentIdentity): Promise<void>;
+  getAgentByPublicKey(publicKey: string): Promise<string | null>;
+  putPublicKeyMapping(publicKey: string, agentId: string): Promise<void>;
+  getNonce(nonce: string): Promise<NonceRecord | null>;
+  putNonce(record: NonceRecord): Promise<void>;
+  deleteNonce(nonce: string): Promise<void>;
+  listAgents(limit?: number): Promise<AgentIdentity[]>;
+}
+
+export interface Env {
+  AGENT_KV: KVNamespace;
+}
