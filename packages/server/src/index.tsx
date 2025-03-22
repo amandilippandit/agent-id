@@ -9,7 +9,7 @@ import type {
 } from "./types.js";
 import { fromBase64Url, generateNonce, fingerprint, verify } from "./crypto.js";
 import { getStore } from "./store.js";
-
+import { LandingPage } from "./page.js";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -17,10 +17,7 @@ app.use("*", cors());
 
 // ── Landing Page ────────────────────────────────────────────────
 
-import { LandingPage } from "./page.js";
-// Landing page
 app.get("/", (c) => c.html(<LandingPage />));
-
 
 // ── Get Registration Nonce ──────────────────────────────────────
 
