@@ -89,3 +89,13 @@ export class KVStore implements Store {
     return agents.sort((a, b) => b.created_at - a.created_at);
   }
 }
+
+let memoryStore: MemoryStore | null = null;
+
+export function getStore(env?: Env): Store {
+  if (env?.AGENT_KV) {
+    return new KVStore(env.AGENT_KV);
+  }
+  if (!memoryStore) memoryStore = new MemoryStore();
+  return memoryStore;
+}
