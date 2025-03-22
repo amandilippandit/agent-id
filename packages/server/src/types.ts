@@ -11,3 +11,23 @@ export interface AgentMetadata {
   runtime?: string;
   model?: string;
 }
+
+export interface NonceRecord {
+  nonce: string;
+  created_at: number;
+  used: boolean;
+}
+
+export interface RegisterRequest {
+  public_key: string;
+  proof: string;
+  nonce: string;
+  metadata?: AgentMetadata;
+}
+
+export interface RegisterResponse {
+  agent_id: string;
+  public_key: string;
+  status: "active";
+  created_at: number;
+}
