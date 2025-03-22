@@ -45,3 +45,47 @@ export class MemoryStore implements Store {
       .slice(0, limit);
   }
 }
+
+export class KVStore implements Store {
+  constructor(private kv: KVNamespace) {}
+
+  async getAgent(agentId: string): Promise<AgentIdentity | null> {
+    return this.kv.get<AgentIdentity>(\`agent:\${agentId}\`, "json");
+  }
+
+  async putAgent(agent: AgentIdentity): Promise<void> {
+    await this.kv.put(\`agent:\${agent.agent_id}\`, JSON.stringify(agent));
+  }
+
+  async getAgentByPublicKey(publicKey: string): Promise<string | null> {
+    return this.kv.get(\`pubkey:\${publicKey}\`, "text");
+  }
+
+  async putPublicKeyMapping(publicKey: string, agentId: string): Promise<void> {
+    await this.kv.put(\`pubkey:\${publicKey}\`, agentId);
+  }
+
+  async getNonce(nonce: string): Promise<NonceRecord | null> {
+    return this.kv.get<NonceRecord>(\`regnonce:\${nonce}\`, "json");
+  }
+
+  async putNonce(record: NonceRecord): Promise<void> {
+    await this.kv.put(\`regnonce:\${record.nonce}\`, JSON.stringify(record), {
+      expirationTtl: 300,
+    });
+  }
+
+  async deleteNonce(nonce: string): Promise<void> {
+    await this.kv.delete(\`regnonce:\${nonce}\`);
+  }
+
+  async listAgents(limit = 50): Promise<AgentIdentity[]> {
+    const list = await this.kv.list({ prefix: "agent:", limit });
+    const agents: AgentIdentity[] = [];
+    for (const key of list.keys) {
+      const agent = await this.kv.get<AgentIdentity>(key.name, "json");
+      if (agent) agents.push(agent);
+    }
+    return agents.sort((a, b) => b.created_at - a.created_at);
+  }
+}
