@@ -33,3 +33,8 @@ export function generateKeypair(): Keypair {
   const publicKey = ed.getPublicKey(privateKey);
   return { privateKey, publicKey };
 }
+
+export async function fingerprint(publicKey: Uint8Array): Promise<string> {
+  const hash = await crypto.subtle.digest("SHA-256", publicKey);
+  return toHex(new Uint8Array(hash));
+}
