@@ -22,3 +22,14 @@ export function toHex(bytes: Uint8Array): string {
     .map((b) => b.toString(16).padStart(2, "0"))
     .join("");
 }
+
+export interface Keypair {
+  privateKey: Uint8Array;
+  publicKey: Uint8Array;
+}
+
+export function generateKeypair(): Keypair {
+  const privateKey = ed.utils.randomPrivateKey();
+  const publicKey = ed.getPublicKey(privateKey);
+  return { privateKey, publicKey };
+}
