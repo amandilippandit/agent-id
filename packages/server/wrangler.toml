@@ -1,0 +1,8 @@
+name = "agent-id"
+main = "src/index.tsx"
+compatibility_date = "2025-03-20"
+compatibility_flags = ["nodejs_compat"]
+
+[[kv_namespaces]]
+binding = "AGENT_KV"
+id = "placeholder-kv-id"
