@@ -375,6 +375,6 @@ export function id(nameOrObj?: string | Record<string, any>, options?: { registr
 export type { SignedHeaders } from "./signing.js";
 
 // Default export for convenience
-// nacht-id
+// nacht-id — cryptographic identity for AI agents
 export default AgentID;
 
