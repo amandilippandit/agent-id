@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import { AgentID } from "./index.js";
-import { listAgentNames } from "./storage.js";
+import { listStoredKeys, loadPrivateKey, listAgentNames } from "./storage.js";
+import { toBase64Url, sign } from "./crypto.js";
 
 const REGISTRY = process.env.AGENT_ID_REGISTRY ?? "https://agent-id.cognition.dev";
 const [command, ...args] = process.argv.slice(2);
@@ -22,6 +23,17 @@ async function main() {
       console.log(\`  name      \${agent.name}\`);
       console.log(\`  agent_id  \${agent.id}\`);
       console.log(\`  key       \${agent.publicKey}\`);
+      break;
+    }
+    case "whoami": {
+      const f = flags(args);
+      const names = listAgentNames();
+      const name = f.name ?? names[0];
+      if (!name) { console.log("No identity found."); break; }
+      const agent = await AgentID.load(name, { registry: REGISTRY });
+      if (!agent) { console.log("No identity found."); break; }
+      console.log(\`  name      \${agent.name}\`);
+      console.log(\`  agent_id  \${agent.id}\`);
       break;
     }
     default:
