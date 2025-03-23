@@ -378,4 +378,4 @@ export type { SignedHeaders } from "./signing.js";
 
 export default AgentID;
 
-// v0.4.3
+
