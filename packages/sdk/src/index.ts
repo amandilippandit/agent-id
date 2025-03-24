@@ -141,7 +141,7 @@ export class AgentID {
 
     if (!res.ok) {
       const err = (await res.json()) as { error: string };
-      throw new Error(`Registration failed: ${err.error}`);
+      throw new Error(`Agent registration failed: ${err.error}`);
     }
 
     // Save key to disk under this agent's name
