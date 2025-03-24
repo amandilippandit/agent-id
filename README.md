@@ -246,3 +246,6 @@ yarn add nacht-id
 **nacht-id** — cryptographic identity for the agentic era.
 
 Built by [Aman Pandit](https://github.com/amandilippandit).
+## Contributing
+
+PRs welcome. Open an issue first for major changes.
