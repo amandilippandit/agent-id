@@ -240,7 +240,7 @@ export class AgentID {
 
     if (!res.ok) {
       const err = (await res.json()) as { error: string };
-      throw new Error(`Update failed: ${err.error}`);
+      throw new Error(`Metadata update failed: ${err.error}`);
     }
   }
 
