@@ -33,6 +33,7 @@
     "nacht-id"
   ],
   "license": "MIT",
+  "author": "Aman Pandit",
   "repository": {
     "type": "git",
     "url": "https://github.com/AmanPandit/agent-id"
