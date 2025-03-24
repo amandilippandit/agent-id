@@ -47,3 +47,19 @@ const agents = await Promise.all([
   'onboarding', 'support-bot', 'pipeline', 'test-runner', 'lead-qualifier',
 ].map(id))
 ```
+
+### From objects
+
+```ts
+import { id } from 'nacht-id'
+
+const agent = await id({ role: 'researcher', model: 'claude-sonnet-4' })
+```
+
+### Zero config
+
+```ts
+import { id } from 'nacht-id'
+
+const agent = await id()
+```
