@@ -29,7 +29,8 @@
     "cryptographic-identity",
     "agent",
     "llm",
-    "autonomous-agent"
+    "autonomous-agent",
+    "nacht-id"
   ],
   "license": "MIT",
   "repository": {
