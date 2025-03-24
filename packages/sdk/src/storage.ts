@@ -22,7 +22,7 @@ export function savePrivateKey(
   basePath?: string,
 ): void {
   const dir = ensureDir(getAgentDir(name, basePath));
-  writeFileSync(join(dir, `${agentId}.key`), Buffer.from(privateKey), { mode: 0o600 });
+  writeFileSync(join(dir, `${agentId}.key`), Buffer.from(privateKey), { mode: 0o600 }) // owner-only read/write);
 }
 
 export function loadPrivateKey(
@@ -81,6 +81,6 @@ export function getOrCreateDefaultName(basePath?: string): string {
   const hex = Math.random().toString(16).slice(2, 6);
   const name = `${adj[Math.floor(Math.random() * adj.length)]}-${noun[Math.floor(Math.random() * noun.length)]}-${hex}`;
 
-  writeFileSync(defaultFile, name, { mode: 0o600 });
+  writeFileSync(defaultFile, name, { mode: 0o600 }) // owner-only read/write);
   return name;
 }
