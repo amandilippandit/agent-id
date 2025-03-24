@@ -25,7 +25,7 @@ export class MemoryStore implements Store {
   async getNonce(nonce: string): Promise<NonceRecord | null> {
     const record = this.nonces.get(nonce);
     if (!record) return null;
-    if (Date.now() - record.created_at > 5 * 60 * 1000) {
+    if (Date.now() - record.created_at > 5 * 60 * 1000 /* 5 min */) {
       this.nonces.delete(nonce);
       return null;
     }
