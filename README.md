@@ -249,3 +249,7 @@ Built by [Aman Pandit](https://github.com/amandilippandit).
 ## Contributing
 
 PRs welcome. Open an issue first for major changes.
+
+## License
+
+MIT
