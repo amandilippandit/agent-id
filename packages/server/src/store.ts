@@ -1,3 +1,4 @@
+// Agent-ID Registry — Store Implementations
 import type { AgentIdentity, Env, NonceRecord, Store } from "./types.js";
 
 export class MemoryStore implements Store {
