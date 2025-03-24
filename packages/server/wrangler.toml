@@ -6,3 +6,4 @@ compatibility_flags = ["nodejs_compat"]
 [[kv_namespaces]]
 binding = "AGENT_KV"
 id = "placeholder-kv-id"
+
