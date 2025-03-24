@@ -20,3 +20,30 @@ import { id } from 'nacht-id'
 const agent = await id('my-agent')
 // Done. agent.id is a permanent cryptographic identity.
 ```
+
+---
+
+## Usage
+
+### One agent
+
+```ts
+import { id } from 'nacht-id'
+
+const agent = await id('researcher')
+console.log(agent.id)   // "25de8afdee35cbd92f7e806776a3ebc4..."
+console.log(agent.name) // "researcher"
+```
+
+### Twenty agents
+
+```ts
+import { id } from 'nacht-id'
+
+const agents = await Promise.all([
+  'researcher', 'writer', 'reviewer', 'code-gen', 'bug-fixer',
+  'pr-reviewer', 'deployer', 'monitor', 'slack-bot', 'email-drafter',
+  'data-analyst', 'scraper', 'summarizer', 'translator', 'scheduler',
+  'onboarding', 'support-bot', 'pipeline', 'test-runner', 'lead-qualifier',
+].map(id))
+```
