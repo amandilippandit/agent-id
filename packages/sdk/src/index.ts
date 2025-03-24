@@ -216,7 +216,7 @@ export class AgentID {
    */
   async profile(): Promise<AgentProfile> {
     const res = await fetch(`${this._registry}/api/agent/${this.id}`);
-    if (!res.ok) throw new Error("Agent not found on registry");
+    if (!res.ok) throw new Error(`Agent ${this.id} not found on registry`);
     return res.json() as Promise<AgentProfile>;
   }
 
