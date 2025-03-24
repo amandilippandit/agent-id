@@ -1,3 +1,4 @@
+// Agent-ID Registry Server
 export interface AgentIdentity {
   agent_id: string;
   public_key: string;
