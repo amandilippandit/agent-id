@@ -4,3 +4,4 @@ dist/
 *.key
 .default
 node_modules/
+.DS_Store
