@@ -44,7 +44,7 @@ async function main() {
       const names = listAgentNames();
       const name = f.name ?? names[0];
       if (!name) {
-        console.log("No identity found. Run: agent-id init --name my-agent");
+        console.log("No identity found. Run: npx nacht-id init --name my-agent");
         break;
       }
       const agent = await AgentID.load(name, { registry: REGISTRY });
