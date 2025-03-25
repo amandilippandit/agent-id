@@ -72,7 +72,7 @@ export class KVStore implements Store {
 
   async putNonce(record: NonceRecord): Promise<void> {
     await this.kv.put(\`regnonce:\${record.nonce}\`, JSON.stringify(record), {
-      expirationTtl: 300,
+      expirationTtl: 300, // 5 min TTL
     });
   }
 
