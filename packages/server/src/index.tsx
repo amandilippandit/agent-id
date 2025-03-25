@@ -152,7 +152,7 @@ app.post("/api/agent/:id/revoke", async (c) => {
 
   const agent = await store.getAgent(agentId);
   if (!agent) return c.json({ error: "Agent not found" }, 404);
-  if (agent.status === "revoked") return c.json({ error: "Already revoked" }, 400);
+  if (agent.status === "revoked") return c.json({ error: "Identity already revoked" }, 400);
 
   // Verify revocation proof
   const message = `REVOKE:${agentId}:${body.timestamp}`;
