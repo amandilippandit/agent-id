@@ -27,7 +27,7 @@
     "identity",
     "ed25519",
     "cryptographic-identity",
-    "agent",
+    "agent", "crypto",
     "llm",
     "autonomous-agent",
     "nacht-id"
