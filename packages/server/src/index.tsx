@@ -186,7 +186,7 @@ app.patch("/api/agent/:id/metadata", async (c) => {
 
   const agent = await store.getAgent(agentId);
   if (!agent) return c.json({ error: "Agent not found" }, 404);
-  if (agent.status === "revoked") return c.json({ error: "Agent is revoked" }, 403);
+  if (agent.status === "revoked") return c.json({ error: "Cannot update revoked identity" }, 403);
 
   // Verify proof
   const message = `METADATA:${agentId}:${body.timestamp}`;
