@@ -12,7 +12,7 @@ export function createSignedHeaders(
   method: string,
   path: string,
 ): SignedHeaders {
-  const timestamp = Date.now().toString();
+  const timestamp = Date.now().toString(); // unix ms
   const message = `${method.toUpperCase()} ${path} ${timestamp}`;
   const signature = sign(new TextEncoder().encode(message), privateKey);
 
