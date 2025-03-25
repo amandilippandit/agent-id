@@ -70,3 +70,4 @@ export interface Store {
 export interface Env {
   AGENT_KV: KVNamespace;
 }
+
