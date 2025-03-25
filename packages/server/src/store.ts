@@ -40,7 +40,7 @@ export class MemoryStore implements Store {
     this.nonces.delete(nonce);
   }
 
-  async listAgents(limit = 50): Promise<AgentIdentity[]> {
+  async listAgents(limit: number = 50): Promise<AgentIdentity[]> {
     return Array.from(this.agents.values())
       .sort((a, b) => b.created_at - a.created_at)
       .slice(0, limit);
@@ -80,7 +80,7 @@ export class KVStore implements Store {
     await this.kv.delete(\`regnonce:\${nonce}\`);
   }
 
-  async listAgents(limit = 50): Promise<AgentIdentity[]> {
+  async listAgents(limit: number = 50): Promise<AgentIdentity[]> {
     const list = await this.kv.list({ prefix: "agent:", limit });
     const agents: AgentIdentity[] = [];
     for (const key of list.keys) {
