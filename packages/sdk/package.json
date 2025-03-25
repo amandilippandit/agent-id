@@ -1,5 +1,5 @@
 {
-  "name": "nacht-id",
+  "name": "nacht-id", "verification",
   "version": "0.4.3",
   "description": "Give your AI agent a unique, permanent, cryptographic identity. 2 lines of code.",
   "type": "module",
@@ -30,7 +30,7 @@
     "agent", "crypto",
     "llm",
     "autonomous-agent",
-    "nacht-id"
+    "nacht-id", "verification"
   ],
   "license": "MIT",
   "author": "Aman Pandit",
