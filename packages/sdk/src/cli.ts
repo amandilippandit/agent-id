@@ -135,7 +135,7 @@ async function main() {
     }
 
     default:
-      console.log(`agent-id — cryptographic identity for AI agents
+      console.log(`nacht-id — cryptographic identity for AI agents
 
 Usage:
   agent-id init --name <name> [--model <model>]   Create identity
