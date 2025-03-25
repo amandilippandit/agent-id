@@ -408,7 +408,7 @@ export function LandingPage() {
           </div>
 
           <div class="footer">
-            <p>Agent-ID — cryptographic identity for the agentic era</p>
+            <p>nacht-id — cryptographic identity for the agentic era</p>
           </div>
         </div>
 
