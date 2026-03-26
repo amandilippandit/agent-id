@@ -1,0 +1,10 @@
+{
+  "name": "agent-id-monorepo",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "cd packages/server && bun run dev",
+    "build:sdk": "cd packages/sdk && bun run build",
+    "deploy": "cd packages/server && bun run deploy"
+  }
+}

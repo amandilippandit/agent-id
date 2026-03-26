@@ -1,0 +1,42 @@
+{
+  "name": "nacht-id",
+  "version": "0.4.3",
+  "description": "Give your AI agent a unique, permanent, cryptographic identity. 2 lines of code.",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "bin": {
+    "agent-id": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "dependencies": {
+    "@noble/ed25519": "^2.2.0",
+    "@noble/hashes": "^1.7.0"
+  },
+  "keywords": [
+    "ai-agent",
+    "identity",
+    "ed25519",
+    "cryptographic-identity",
+    "agent",
+    "llm",
+    "autonomous-agent"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AmanPandit/agent-id"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.0"
+  }
+}
