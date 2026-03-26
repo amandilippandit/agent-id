@@ -2,9 +2,7 @@
 
 **Cryptographic identity for AI agents. One line. Permanent. Unfakeable.**
 
-You have one API key. You spin up 100 agents. They all look the same from the outside. No one can tell Agent #1 from Agent #47.
-
-nacht-id fixes that. Every agent gets a unique, cryptographic identity that no one can fake, steal, or duplicate.
+Agents today are ghosts. They share API keys, run as anonymous processes, and leave no verifiable trace of who did what. When an agent sends an email, deploys code, or calls an API — there's no way to prove which agent did it, or that it was even an agent you authorized. nacht-id gives every agent instance its own Ed25519 keypair — a self-sovereign, cryptographic identity that's generated inside the agent, never leaves its environment, and can be verified by anyone without trusting a central authority. One line of code. No config. No accounts. Just math.
 
 ```bash
 npm install nacht-id
